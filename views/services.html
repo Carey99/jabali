@@ -40,12 +40,17 @@
         }
 
         /* Services Section */
+        @font-face {
+        font-family: 'garogier';
+        src: url('../fonts/garogier.ttf') format('truetype');
+        }
         .services-section {
             padding: 4rem 1.5rem;
             background: url('/images/service_bg.webp') no-repeat center center/cover;
             position: relative;
             color: white;
             flex-grow: 1;
+            font-family: 'garogier';
         }
 
         /* Dark Overlay */
@@ -105,7 +110,7 @@
         /* Slider Section */
         .slider-section {
             padding: 0.5rem 0.5rem;
-            background-color: rgb(29, 26, 26);
+            background-color: rgb(8, 7, 7);
         }
 
         .slider-container {
@@ -122,27 +127,42 @@
 
         .slide {
             min-width: 100%;
-            position: relative;
+            display: flex; /* Add this to allow positioning the description next to the image */
+            justify-content: space-between;
+            align-items: center; /* Aligns image and text vertically */
         }
 
         .slide img {
             border-radius: 5%;
+            flex: 1; /* The image will take up available space */
+            max-width: 30%; /* Limit image width on large screens */
         }
 
         .caption {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
+            position: relative; /* Remove absolute positioning */
+            padding: 0.5rem 1rem;
             color: white;
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem 1rem;
             border-radius: 5px;
+            max-width: 35%; /* The description takes up space on the right */
+            font-size: 4.5rem; /* Adjust the font size */
         }
 
+        /* Responsive for smaller screens */
         @media screen and (max-width: 48rem) {
+            .slide {
+                flex-direction: column; /* Stack image and caption on smaller screens */
+            }
+
             .slide img {
-            border-radius: 5%;
-            width: 100%;
+                width: 100%;
+                max-width: 50%; /* Make image full width on small screens */
+                margin-bottom: 1rem;
+            }
+
+            .caption {
+                max-width: 100%; /* Description takes full width on small screens */
+                font-size: 1rem; /* Reduce font size on small screens */
             }
         }
 
@@ -216,7 +236,7 @@
 
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Jabali Fisheries. All rights reserved.</p>
+            <p>&copy; 2024 Jabali Fish Farm. All rights reserved.</p>
         </div>
     </footer>
 
