@@ -18,6 +18,10 @@ app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'contact.html'));
 });
 
+app.get('/services', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'services.html'));
+})
+
 // Send email route
 app.post('/send-email', (req, res) => {
   const { name, email, subject, message } = req.body;
